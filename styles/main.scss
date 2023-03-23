@@ -10,7 +10,6 @@ $paragraph-size:24px;
 $nav-menu-size:34px;
 $icon-size:34px;
 
-// $text-size:24px, $text-color:$on-primary-color, $font-weight:$font-weight-default
 *{
     margin: 0;
     padding: 0;
@@ -132,11 +131,10 @@ header{
     @include flex-container();
     align-items: center;
     grid-column-gap: 20px;
-    padding-top: 130px;
+    padding-top: 40px;
     figure{
         img{
-            max-width: 458px;
-            max-height: 657px;
+            max-width: 400px;
         }
     }
     #home-inner{
