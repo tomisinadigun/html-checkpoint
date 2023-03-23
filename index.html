@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css" integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio</title>
 </head>
 <body>
     <header>
-        <img src="images/portfolio logo.png" alt="">
-        <div>
-            <ul>
+        <figure id="logo-container"><img src="images/portfolio logo.png" alt="" id="brand-logo"></figure>
+        <nav class="nav-container">
+            <ul class="nav-items">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
@@ -18,25 +20,26 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
+        </nav>
+        <div id="menu-icon"><span class="mdi mdi-menu"></span></div>
     </header>
     <main>
         <section id="home">
-            <div>
-                <div>
+            <div id="home-inner">
+                <div class="social-container">
                     <ul>
-                        <li><img src="/images/facebook.png" alt=""></li>
-                        <li><img src="/images/google.png" alt=""></li>
-                        <li><img src="/images/linkedin.png" alt=""></li>
-                        <li><img src="/images/twitter.png" alt=""></li>
-                        <li><img src="/images/whatsapp.png" alt=""></li>
+                        <li><a href=""><span class="mdi mdi-facebook"></span></a></li>
+                        <li><a href=""><span class="mdi mdi-google-plus"></span></a></li>
+                        <li><a href=""><span class="mdi mdi-linkedin"></span></a></li>
+                        <li><a href=""><span class="mdi mdi-twitter"></span></a></li>
+                        <li><a href=""><span class="mdi mdi-whatsapp"></span></a></li>
                     </ul>
                 </div>
-                <h1>I am Jonathan Doe</h1>
-                <p>i'm Jonathan, professional web developer with long time experience in this field​</p>
-                <div>
-                    <button>Contact me</button>
-                    <button>Contact me</button>
+                <h1 id="page-title">I am Jonathan Doe</h1>
+                <p id="home-description">i'm Jonathan, professional web developer with long time experience in this field​</p>
+                <div class="home-btns">
+                    <button  id="contact">My Portfolio</button>
+                    <button id="play-intro"><span class="mdi mdi-play"></span></button>
                 </div>
             </div>
 

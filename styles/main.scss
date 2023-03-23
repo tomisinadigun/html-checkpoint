@@ -1,0 +1,262 @@
+// colors
+$primary-color:#1f2235;
+$on-primary-color:hwb(0 100% 0%);
+$secondary-color:#24263b;
+$on-secondary-color:#ff4a57;
+
+
+$font-weight-default:normal;
+$paragraph-size:24px;
+$nav-menu-size:34px;
+$icon-size:34px;
+
+// $text-size:24px, $text-color:$on-primary-color, $font-weight:$font-weight-default
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@mixin nav-text($nav-text){
+    color: $on-primary-color;
+    font-size: 18px;
+    font-weight:600;
+    text-decoration: none;
+}
+
+
+
+%background-one{
+    background-color: $primary-color;
+}
+
+%background-two{
+    background-color: $secondary-color;
+}
+
+%paragraph-styles-shared{
+    color: $on-primary-color;
+    font-size:$paragraph-size;
+    font-weight: $font-weight-default;
+}
+
+
+@mixin flex-container($justifyContent:space-between){
+    display: flex;
+    justify-content: $justifyContent;
+}
+
+@mixin icon($iconColor:white, $iconSize:34px){
+    color: $iconColor;
+    font-size: $iconSize;
+}
+
+@mixin icon-border($iconPadding:0px, $iconBorder:1px solid black, $iconRadius:0px){
+    padding: $iconPadding;
+    border: $iconBorder;
+    border-radius:$iconRadius;
+}
+
+@mixin text-style($textColor:white, $textSize:24px, $textWeight:300){
+    color: $textColor;
+    font-size: $textSize;
+    font-weight: $textWeight;
+}
+
+
+@mixin page-padding($pagePadding:100px){
+    padding-inline: $pagePadding;
+}
+
+%pointer-shared{
+    cursor: pointer;
+}
+
+@mixin anim-transition($transitionTime:0.5s){
+    transition:$transitionTime;
+}
+
+
+// header begins here 
+
+header{
+    @extend %background-one;
+    @include flex-container();
+    @include page-padding();
+    align-items: center;
+    height: 100px;
+
+    .nav-container{
+
+        .nav-items{
+            @include flex-container();
+
+            li{
+                list-style: none;
+                margin-left: 40px;
+                a{
+                    @include nav-text(nav-text);
+                    span{
+                        color: $on-primary-color;
+                    }
+                };
+                a:hover{
+                    color: $on-secondary-color;
+                    @include anim-transition()
+                } 
+            }
+        }
+    }
+
+    #brand-logo{
+        width: 110px;
+        height: 26px;
+    }
+
+    #menu-icon{
+        @include icon($iconSize:32px, $iconColor:rgba(255, 255, 255, 0.633));
+        @extend %pointer-shared;
+        display: none;
+    }
+
+   
+}
+
+#home{
+    @extend %background-two;
+    @include page-padding();
+    @include flex-container();
+    align-items: center;
+    grid-column-gap: 20px;
+    padding-top: 130px;
+    figure{
+        img{
+            max-width: 458px;
+            max-height: 657px;
+        }
+    }
+    #home-inner{
+       display: grid;
+       grid-row-gap: 32px;
+    }
+}
+
+.social-container{
+    ul{
+        @include flex-container($justifyContent:none);
+        li{
+            list-style: none;
+            margin-right: 20px;
+            @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:10px, $iconRadius:50%);
+            @include anim-transition();
+
+            a{
+                text-decoration: none;
+                span{
+                    @include icon($iconSize:24px);
+                    border: 1px solid transparent;
+                }
+            };
+            
+        };
+        li:hover{
+            background-color: $on-secondary-color;
+            @include anim-transition();
+            @extend %pointer-shared
+        }
+    }
+}
+
+#page-title{
+    @include text-style($textSize:58px, $textWeight:800)
+}
+
+#home-description{
+    @include text-style($textSize:30px, $textWeight:400, $textColor:rgba(255, 255, 255, 0.633));
+    line-height: 40px;
+    
+}
+
+.home-btns{
+
+    display: flex;
+    align-items: center;
+    grid-column-gap: 20px;
+
+    #contact{
+        @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:0px, $iconRadius:28px);
+        padding-inline:40px;
+        padding-block: 12px;
+        @include text-style($textSize:18px,);
+        background-color:transparent;
+        @include anim-transition();
+    }
+
+    #contact:hover{
+        background-color: $on-secondary-color;
+        @include anim-transition();
+        @extend %pointer-shared
+    }
+
+    #play-intro{
+        @include icon($iconSize:32px, $iconColor:$on-primary-color);
+        @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconRadius:28px);
+        background-color: $on-secondary-color;
+        padding-inline:40px;
+        padding-block: 4px;
+        @extend %pointer-shared
+    }
+    
+
+};
+
+
+@media (max-width:990px) {
+    header{
+        .nav-container{
+            display: none;
+        }
+        #menu-icon{
+            display: block;
+        }
+        @include page-padding($pagePadding:32px);
+    }
+    #home{
+        @include page-padding($pagePadding:32px);
+        padding-block: 100px;
+        figure{
+            img{
+                display: none;
+            }
+        }
+    }
+    
+}
+
+@media (max-width:700px){
+    header, #home{
+        @include page-padding($pagePadding:32px);
+    }
+    #home{
+        #home-inner{
+            text-align: center;
+            .social-container{
+                @include flex-container($justifyContent:center)
+            }
+            .home-btns{
+                @include flex-container($justifyContent:center)
+            }
+        }
+    }
+}
+
+@media (max-width:500px){
+    header, #home{
+        @include page-padding($pagePadding:8px);
+    }
+}
+
