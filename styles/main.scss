@@ -10,6 +10,10 @@ $paragraph-size:24px;
 $nav-menu-size:34px;
 $icon-size:34px;
 
+$text-section-title:30px;
+
+$text-main-size:18px;
+
 *{
     margin: 0;
     padding: 0;
@@ -79,6 +83,15 @@ body{
     transition:$transitionTime;
 }
 
+%padding-section-shared{
+    @include page-padding();
+    padding-block: 84px;
+}
+
+%main-text-size{
+    font-size:$text-main-size;
+    color: white;
+}
 
 // header begins here 
 
@@ -140,44 +153,49 @@ header{
     #home-inner{
        display: grid;
        grid-row-gap: 32px;
-    }
-}
 
-.social-container{
-    ul{
-        @include flex-container($justifyContent:none);
-        li{
-            list-style: none;
-            margin-right: 20px;
-            @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:10px, $iconRadius:50%);
-            @include anim-transition();
-
-            a{
-                text-decoration: none;
-                span{
-                    @include icon($iconSize:24px);
-                    border: 1px solid transparent;
+       .social-container{
+            ul{
+                @include flex-container($justifyContent:none);
+                li{
+                    list-style: none;
+                    margin-right: 20px;
+                    @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:10px, $iconRadius:50%);
+                    @include anim-transition();
+        
+                    a{
+                        text-decoration: none;
+                        span{
+                            @include icon($iconSize:24px);
+                            border: 1px solid transparent;
+                        }
+                    };
+                    
+                };
+                li:hover{
+                    background-color: $on-secondary-color;
+                    @include anim-transition();
+                    @extend %pointer-shared
                 }
-            };
-            
-        };
-        li:hover{
-            background-color: $on-secondary-color;
-            @include anim-transition();
-            @extend %pointer-shared
+            }
         }
+
+        #home-description{
+            @include text-style($textSize:30px, $textWeight:400, $textColor:rgba(255, 255, 255, 0.633));
+            line-height: 40px;  
+        }
+
     }
+
 }
+
+
 
 #page-title{
     @include text-style($textSize:58px, $textWeight:800)
 }
 
-#home-description{
-    @include text-style($textSize:30px, $textWeight:400, $textColor:rgba(255, 255, 255, 0.633));
-    line-height: 40px;
-    
-}
+
 
 .home-btns{
 
@@ -211,6 +229,85 @@ header{
     
 
 };
+
+
+
+
+#title{
+    @include text-style($textSize:58px,$textColor:white , $textWeight:800 );
+    margin-bottom: 32px;
+}
+
+
+#services{
+    background-color: $primary-color;
+    @extend %padding-section-shared;
+    .services-head{
+        text-align: center;
+        margin-bottom: 40px;
+        #title-line{
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            hr{
+                border: 1px solid $on-secondary-color
+            }
+        }
+        #sub-title{
+            p {
+                @extend %main-text-size;
+                line-height: 32px;
+            }
+        }
+    }
+  
+    .services-list{
+        display: flex;
+        justify-content: center;
+        grid-gap: 32px;
+        flex-wrap: wrap;
+        .service-item{
+            height: 330px;
+            width: 330px;
+            display: inline-block;
+            background-color: $secondary-color;
+            color: white;
+            border-radius: 20px;
+            padding: 35px;
+            #service-icon{
+                @include text-style($textSize:52px, $textColor:$on-secondary-color);
+                width: fit-content;
+            }
+            h3{
+               @include text-style($textSize:22px,$textWeight:800 )
+            }
+            p{
+                @include text-style($textSize:18px, $textColor:white );
+                line-height: 32px;
+            }
+            @include anim-transition()
+        }
+        .service-item * + *{
+            margin-top: 20px;
+        }
+        .service-item:hover{
+            background-color: $on-secondary-color;
+            @include anim-transition();
+            cursor: pointer;
+            #service-icon{
+                color: white;
+                transform: rotateY(360deg);
+                @include anim-transition($transitionTime:1.2s)
+            }
+            
+            
+        }
+
+    }
+}
+
+
 
 
 @media (max-width:990px) {

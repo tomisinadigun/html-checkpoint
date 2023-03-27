@@ -12,8 +12,16 @@ header {
 #home {
   background-color: #24263b; }
 
-header #menu-icon, .social-container ul li:hover, .home-btns #contact:hover, .home-btns #play-intro {
+header #menu-icon, #home #home-inner .social-container ul li:hover, .home-btns #contact:hover, .home-btns #play-intro {
   cursor: pointer; }
+
+#services {
+  padding-inline: 100px;
+  padding-block: 84px; }
+
+#services .services-head #sub-title p {
+  font-size: 18px;
+  color: white; }
 
 header {
   display: flex;
@@ -57,37 +65,35 @@ header {
   #home #home-inner {
     display: grid;
     grid-row-gap: 32px; }
-
-.social-container ul {
-  display: flex;
-  justify-content: none; }
-  .social-container ul li {
-    list-style: none;
-    margin-right: 20px;
-    padding: 10px;
-    border: 2.5px solid #ff4a57;
-    border-radius: 50%;
-    transition: 0.5s; }
-    .social-container ul li a {
-      text-decoration: none; }
-      .social-container ul li a span {
-        color: white;
-        font-size: 24px;
-        border: 1px solid transparent; }
-  .social-container ul li:hover {
-    background-color: #ff4a57;
-    transition: 0.5s; }
+    #home #home-inner .social-container ul {
+      display: flex;
+      justify-content: none; }
+      #home #home-inner .social-container ul li {
+        list-style: none;
+        margin-right: 20px;
+        padding: 10px;
+        border: 2.5px solid #ff4a57;
+        border-radius: 50%;
+        transition: 0.5s; }
+        #home #home-inner .social-container ul li a {
+          text-decoration: none; }
+          #home #home-inner .social-container ul li a span {
+            color: white;
+            font-size: 24px;
+            border: 1px solid transparent; }
+      #home #home-inner .social-container ul li:hover {
+        background-color: #ff4a57;
+        transition: 0.5s; }
+    #home #home-inner #home-description {
+      color: rgba(255, 255, 255, 0.633);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 40px; }
 
 #page-title {
   color: white;
   font-size: 58px;
   font-weight: 800; }
-
-#home-description {
-  color: rgba(255, 255, 255, 0.633);
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 40px; }
 
 .home-btns {
   display: flex;
@@ -116,6 +122,65 @@ header {
     background-color: #ff4a57;
     padding-inline: 40px;
     padding-block: 4px; }
+
+#title {
+  color: white;
+  font-size: 58px;
+  font-weight: 800;
+  margin-bottom: 32px; }
+
+#services {
+  background-color: #1f2235; }
+  #services .services-head {
+    text-align: center;
+    margin-bottom: 40px; }
+    #services .services-head #title-line {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      margin-bottom: 60px; }
+      #services .services-head #title-line hr {
+        border: 1px solid #ff4a57; }
+    #services .services-head #sub-title p {
+      line-height: 32px; }
+  #services .services-list {
+    display: flex;
+    justify-content: center;
+    grid-gap: 32px;
+    flex-wrap: wrap; }
+    #services .services-list .service-item {
+      height: 330px;
+      width: 330px;
+      display: inline-block;
+      background-color: #24263b;
+      color: white;
+      border-radius: 20px;
+      padding: 35px;
+      transition: 0.5s; }
+      #services .services-list .service-item #service-icon {
+        color: #ff4a57;
+        font-size: 52px;
+        font-weight: 300;
+        width: fit-content; }
+      #services .services-list .service-item h3 {
+        color: white;
+        font-size: 22px;
+        font-weight: 800; }
+      #services .services-list .service-item p {
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 32px; }
+    #services .services-list .service-item * + * {
+      margin-top: 20px; }
+    #services .services-list .service-item:hover {
+      background-color: #ff4a57;
+      transition: 0.5s;
+      cursor: pointer; }
+      #services .services-list .service-item:hover #service-icon {
+        color: white;
+        transform: rotateY(360deg);
+        transition: 1.2s; }
 
 @media (max-width: 990px) {
   header {
