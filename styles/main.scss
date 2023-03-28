@@ -20,6 +20,7 @@ $text-main-size:18px;
     box-sizing: border-box;
 }
 
+
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -203,20 +204,7 @@ header{
     align-items: center;
     grid-column-gap: 20px;
 
-    #contact{
-        @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:0px, $iconRadius:28px);
-        padding-inline:40px;
-        padding-block: 12px;
-        @include text-style($textSize:18px,);
-        background-color:transparent;
-        @include anim-transition();
-    }
-
-    #contact:hover{
-        background-color: $on-secondary-color;
-        @include anim-transition();
-        @extend %pointer-shared
-    }
+    
 
     #play-intro{
         @include icon($iconSize:32px, $iconColor:$on-primary-color);
@@ -232,35 +220,54 @@ header{
 
 
 
+#contact{
+    @include icon-border($iconBorder:2.5px solid $on-secondary-color, $iconPadding:0px, $iconRadius:28px);
+    padding-inline:40px;
+    padding-block: 12px;
+    @include text-style($textSize:18px,);
+    background-color:transparent;
+    @include anim-transition();
+}
+
+#contact:hover{
+    background-color: $on-secondary-color;
+    @include anim-transition();
+    @extend %pointer-shared
+}
+
 
 #title{
     @include text-style($textSize:58px,$textColor:white , $textWeight:800 );
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+}
+
+#sub-title{
+    p {
+        @extend %main-text-size;
+        line-height: 32px;
+    }
+}
+
+.section-head{
+    text-align: center;
+    #title-line{
+        display: flex;
+        justify-content: center;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        hr{
+            border: 1px solid $on-secondary-color
+        }
+    }
+    .hire-me{
+        margin-top: 32px;
+    }
 }
 
 
 #services{
     background-color: $primary-color;
     @extend %padding-section-shared;
-    .services-head{
-        text-align: center;
-        margin-bottom: 40px;
-        #title-line{
-            display: flex;
-            justify-content: center;
-            margin-top: 60px;
-            margin-bottom: 60px;
-            hr{
-                border: 1px solid $on-secondary-color
-            }
-        }
-        #sub-title{
-            p {
-                @extend %main-text-size;
-                line-height: 32px;
-            }
-        }
-    }
   
     .services-list{
         display: flex;
@@ -283,7 +290,7 @@ header{
                @include text-style($textSize:22px,$textWeight:800 )
             }
             p{
-                @include text-style($textSize:18px, $textColor:white );
+                @include text-style($textSize:16px, $textColor:white );
                 line-height: 32px;
             }
             @include anim-transition()
@@ -300,12 +307,237 @@ header{
                 transform: rotateY(360deg);
                 @include anim-transition($transitionTime:1.2s)
             }
-            
-            
+              
         }
 
     }
 }
+
+#about{
+    background-color: $secondary-color;
+    @extend %padding-section-shared;
+    #about-content{
+        display: flex;
+        grid-column-gap: 72px;
+        align-items: center;
+        figure{
+            display: flex;
+            justify-content: center;
+
+            img{
+                min-width: 332px;
+                max-width: 332px;
+                width: 100%;
+            }
+        }
+
+        #about-info{
+            h5{
+                @include text-style($textColor:white, $textWeight:800, $textSize:26px );
+                margin-bottom: 32px;
+            }
+            p{
+                @include text-style($textSize:16px);
+                line-height: 30px;
+            }
+            #contact-info{
+                display: flex;
+                grid-column-gap: 150px;
+                margin-top: 32px;
+            }
+            #name-phone{
+                label{
+                    @include text-style($textSize:16px, $textColor:$on-secondary-color, $textWeight:600);
+                    margin-bottom: 18px;
+                }
+                
+                div{
+                    margin-bottom: 32px;
+                }
+            }
+            
+            #mail-linkdin{
+                label{
+                    @include text-style($textSize:16px, $textColor:$on-secondary-color, $textWeight:600);
+                    margin-bottom: 18px;
+                }
+
+                div{
+                    margin-bottom: 32px;
+                }
+            }
+        }
+       
+    }
+}
+
+#skills{
+    background-color: $primary-color;
+    @extend %padding-section-shared;
+    display: flex;
+    align-items: center;
+    grid-column-gap: 72px;
+    .section-head{
+        flex-basis: 40%;
+        text-align: left;
+    }
+    
+    #my-skills{
+        flex-basis: 60%;
+        h4{
+            @include text-style($textSize:20px, $textWeight:700, $textColor:$on-secondary-color);
+            margin-bottom:32px;
+        }
+
+        .skill-list{
+            display: grid;
+            grid-row-gap: 24px;
+        }
+
+        .skill-item{
+            // border: 1px solid white;
+            .skill-name{
+                margin-bottom: 14px;
+                p{
+                    @include text-style($textSize:16px, $textWeight:600, $textColor:white);
+                }
+                
+            }
+            .skill-progress{
+                width: 100%;
+                max-height: 4px;
+                background-color: $secondary-color;
+                .actual-progress{
+                    background-color: $on-secondary-color;
+                    max-height: 4px;
+                    div{
+                        @include text-style($textSize:16px, $textWeight:400, $textColor:white);
+                        border: 2px solid white;
+                        padding: 4px 16px;
+                        border-radius: 10px;
+                        width: fit-content;
+                        margin-left: auto;
+                        transform: translateY(-110%);
+                    }
+                }
+
+                .actual-progress0{
+                    width: 80%;
+                }
+                .actual-progress1{
+                    width: 70%;
+                }
+                .actual-progress2{
+                    width: 90%;
+                }
+                .actual-progress3{
+                    width: 60%;
+                }
+                .actual-progress4{
+                    width: 100%;
+                }
+                .actual-progress5{
+                    width: 90%;
+                }
+                
+            }
+        }
+    }
+}
+
+#portfolio{
+    background-color: $secondary-color;
+    @extend %padding-section-shared;
+
+    #portfolio-category{
+        display: flex;
+        justify-content: center;
+        margin: 32px 0px;
+        nav{
+            ul{
+                display: flex;
+                align-items: center;
+                grid-column-gap: 16px;
+                li{
+                    list-style: none;
+                    border: 2px solid $on-secondary-color;
+                    width: fit-content;
+                    padding: 8px 16px;
+                    border-radius: 28px;
+                    a{
+                        @include text-style($textSize:15px, $textColor:white, $textWeight:600px)
+                    }
+                }
+                li:hover{
+                    background-color: $on-secondary-color;
+                    @include anim-transition();
+                    cursor: pointer;
+                }
+            }
+        }
+        
+    }
+
+    .designs{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        grid-gap: 30px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+        }
+        figure{
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+        }
+        figure:hover{
+            cursor: pointer;
+        }
+
+        .image1{
+            grid-column: 1 / 2;
+            grid-row: 1 ;
+        }
+        .image2{
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+        }
+        .image3{
+            grid-column: 3;
+            grid-row: 1 / 2;
+        }
+        .image4{
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+        .image5{
+            grid-column: 2 / 3;
+            grid-row: 3 / 6;
+        }
+        .image6{
+            grid-column: 3;
+            grid-row: 2 / 4;
+        }
+        .image7{
+            grid-column: 1;
+            grid-row: 3 / 6;
+        }
+        .image8{
+            grid-column: 3;
+            grid-row: 4 / 6;
+        }
+    }
+}
+
+#contact-us{
+    background-color: $primary-color;
+    @extend %padding-section-shared;
+}
+
 
 
 
@@ -322,11 +554,52 @@ header{
     }
     #home{
         @include page-padding($pagePadding:32px);
+        padding-inline: 32px;
         padding-block: 100px;
         figure{
             img{
                 display: none;
             }
+        }
+    }
+    #services{
+        padding-inline: 32px;
+    }
+    #about{
+        padding-inline: 32px;
+        #about-content{
+            flex-wrap: wrap;
+
+            figure{
+                flex-basis: 100%;
+                margin-bottom: 32px;
+            }
+        }
+    }
+    #skills{
+        padding-inline: 32px;
+        flex-wrap: wrap;
+        .section-head{
+            flex-basis: 100%;
+        }
+        #my-skills{
+            flex-basis: 100%;
+            margin-top: 32px;
+        }
+    }
+    #portfolio{
+        nav{
+            ul{
+                grid-column-gap: 8px;
+                flex-wrap: wrap;
+                li{
+                    margin-top: 8px;
+                }
+            }
+        }
+        padding-inline: 32px;
+        .designs{
+            grid-gap: 10px;
         }
     }
     
