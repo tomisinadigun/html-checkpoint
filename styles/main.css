@@ -15,7 +15,7 @@ header {
 header #menu-icon, #home #home-inner .social-container ul li:hover, .home-btns #play-intro, #contact:hover {
   cursor: pointer; }
 
-#services, #about, #skills, #portfolio, #contact-us {
+#services, #about, #skills, #portfolio, #my-journey, #contact-us {
   padding-inline: 100px;
   padding-block: 84px; }
 
@@ -347,8 +347,35 @@ header {
       grid-column: 3;
       grid-row: 4 / 6; }
 
-#contact-us {
+#my-journey {
+  display: grid;
+  grid-template-columns: repeat(4, 4fr);
+  flex-wrap: wrap;
   background-color: #1f2235; }
+  #my-journey div {
+    text-align: center; }
+    #my-journey div span {
+      color: hwb(0 100% 0%);
+      font-size: 62px;
+      font-weight: 300;
+      margin-bottom: 32px; }
+    #my-journey div p {
+      color: #ff4a57;
+      font-size: 52px;
+      font-weight: 300;
+      font-weight: 700;
+      margin-top: 32px; }
+    #my-journey div .journey-title {
+      color: hwb(0 100% 0%);
+      font-size: 20px;
+      font-weight: 300; }
+
+#contact-us {
+  background-color: #24263b; }
+  #contact-us #contact-info-list {
+    display: flex; }
+    #contact-us #contact-info-list .contact-item {
+      background-color: #1f2235; }
 
 @media (max-width: 990px) {
   header {
@@ -393,7 +420,11 @@ header {
       #portfolio nav ul li {
         margin-top: 8px; }
     #portfolio .designs {
-      grid-gap: 10px; } }
+      grid-gap: 10px; }
+
+  #my-journey {
+    grid-template-columns: repeat(2, 3fr);
+    grid-row-gap: 64px; } }
 @media (max-width: 700px) {
   header, #home {
     padding-inline: 32px; }
@@ -405,7 +436,11 @@ header {
       justify-content: center; }
     #home #home-inner .home-btns {
       display: flex;
-      justify-content: center; } }
+      justify-content: center; }
+
+  #my-journey {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 124px; } }
 @media (max-width: 500px) {
   header, #home {
     padding-inline: 8px; } }

@@ -533,9 +533,42 @@ header{
     }
 }
 
-#contact-us{
+#my-journey {
+    // @include flex-container();
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    flex-wrap: wrap;
     background-color: $primary-color;
     @extend %padding-section-shared;
+    div {
+        text-align: center;
+        span {
+            @include text-style($textColor:$on-primary-color, $textSize:62px );
+            margin-bottom:32px;
+        }
+        p {
+            @include text-style($textColor:$on-secondary-color, $textSize:52px );
+            font-weight: 700;
+            margin-top: 32px;
+        }
+        .journey-title {
+            @include text-style( $textSize:20px, $textColor:$on-primary-color );
+        }
+    }
+}
+
+
+#contact-us{
+    background-color: $secondary-color;
+    @extend %padding-section-shared;
+
+    #contact-info-list {
+        display: flex;
+
+        .contact-item{
+            background-color: $primary-color;
+        }
+    }
 }
 
 
@@ -602,6 +635,10 @@ header{
             grid-gap: 10px;
         }
     }
+    #my-journey {
+        grid-template-columns: repeat(2, 3fr);
+        grid-row-gap:64px ;
+    }
     
 }
 
@@ -619,6 +656,10 @@ header{
                 @include flex-container($justifyContent:center)
             }
         }
+    }
+    #my-journey {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap:124px ;
     }
 }
 
