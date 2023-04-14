@@ -332,6 +332,7 @@ header{
         }
 
         #about-info{
+            width: 100%;
             h5{
                 @include text-style($textColor:white, $textWeight:800, $textSize:26px );
                 margin-bottom: 32px;
@@ -342,7 +343,8 @@ header{
             }
             #contact-info{
                 display: flex;
-                grid-column-gap: 150px;
+                // grid-column-gap: 50px;
+                justify-content: space-between;
                 margin-top: 32px;
             }
             #name-phone{
